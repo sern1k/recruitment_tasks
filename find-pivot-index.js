@@ -2,6 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
+
  var pivotIndex = function (nums) {
     let leftSum = 0;
     let rightSum = 0;
