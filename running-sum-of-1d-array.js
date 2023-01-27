@@ -2,12 +2,11 @@
  * @param {number[]} nums
  * @return {number[]}
  */
- var runningSum = function(nums) {
-    let output = [...nums];
+var runningSum = function(nums) {
+    let output = [];
+    output.push(nums[0]);
     for (let i = 1; i < nums.length; i++) {
-        for (let j = i-1; j >= 0; j--) {
-            output[i] += nums[j]
-        }
+        output[i] = output[i - 1] + nums[i]
     }
     return output;
 };
