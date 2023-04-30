@@ -2,6 +2,33 @@
  * @param {string} s
  * @return {boolean}
  */
+
+// new solution
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+    let stack = [];
+    const map = {
+        '(': ')',
+        '[': ']',
+        '{': '}'
+    };
+
+    for (let i = 0; i < s.length; i++) {
+        let parenthes = s[i];
+        if (map[parenthes]) {
+            stack.push(map[parenthes]);
+        } else if (parenthes !== stack.pop()) {
+            return false;
+        }
+    }
+
+    return !stack.length;
+};
+
+// old solution
 var isValid = function(s) {
     if (s.length % 2 === 1) return false;
     if (s[0] === ')' || s[0] === ']' || s[0] === '}') return false;
